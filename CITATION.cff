@@ -6,7 +6,7 @@ message: >-
   published it, its correction.
 title: fl-yolov7-road-signs
 type: software
-version: 1.0.0
+version: 1.0.1
 date-released: 2026-11-25
 license: GPL-3.0-only
 repository-code: https://github.com/Bennett-hash/fl-yolov7-road-signs

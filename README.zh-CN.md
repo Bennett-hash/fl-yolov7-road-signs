@@ -167,7 +167,7 @@ python -m fedyolo.run exp4 --yolov7 third_party/yolov7 --data data/gtsrb-yolo --
 
 ```bash
 pip install -e ".[figures]"
-gh release download v1.0.0 --repo Bennett-hash/fl-yolov7-road-signs --pattern "*-exp*.tar.gz" --dir archives
+gh release download v1.0.1 --repo Bennett-hash/fl-yolov7-road-signs --pattern "*-exp*.tar.gz" --dir archives
 python tools/collect_results.py archives
 python tools/make_figures.py
 ```
