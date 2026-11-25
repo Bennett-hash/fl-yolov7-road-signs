@@ -11,8 +11,9 @@ README):
 
 Needs Matplotlib and NumPy. The colours remain distinguishable for colour-blind
 readers; series also differ by line style, marker or hatching, so the figures
-read in black and white. The confusion matrices are drawn for the width of the
-article's text (16 cm), with 6-point labels at that size.
+read in black and white. The confusion matrices are drawn at the size the
+article prints them, about 15 cm by 10 cm, with labels of 5 points or more at
+that size.
 
 In ``curves-<dataset>`` the centralised run's line is the validation
 ``train.py`` makes after every epoch, and the federated runs' markers are
@@ -181,7 +182,10 @@ def confusion(dataset: str, exp: str) -> None:
     A cell is the share of the column's signs that were detected as the row's
     class; the last row is the share that was not detected (at a confidence of
     0.25, as YOLOv7 draws it). The last column divides the detections that
-    match no sign among the classes they were given.
+    match no sign among the classes they were given. Rows carry the class's
+    name and number, columns the number, which keeps the figure to the size of
+    the article's own (about 15 cm by 10 cm, two to a page) with labels that
+    can be read at that size.
     """
     path = RESULTS / dataset / exp / "confusion_matrix.csv"
     if not path.exists():
@@ -190,26 +194,33 @@ def confusion(dataset: str, exp: str) -> None:
     shares = counts / (counts.sum(0, keepdims=True) + 1e-6)
     shares[shares < 0.005] = np.nan
     n = len(CLASS_NAMES) + 1
-    fig, ax = plt.subplots(figsize=(6.3, 6.9))  # 16 cm wide
+    small = 5.5
+    fig, ax = plt.subplots(figsize=(6.6, 4.35))
     mesh = ax.pcolormesh(np.arange(n + 1), np.arange(n + 1), shares, cmap="Blues", vmin=0, vmax=1,
                          edgecolors="face", linewidth=0.1)  # fmt: skip
     ax.set_aspect("equal")
     ax.invert_yaxis()
     ax.set_xticks(np.arange(n) + 0.5)
     ax.set_yticks(np.arange(n) + 0.5)
-    ax.set_xticklabels([*CLASS_NAMES, "no sign"], rotation=90, fontsize=6)
-    ax.set_yticklabels([*CLASS_NAMES, "not detected"], fontsize=6)
-    ax.tick_params(length=1.5, width=0.3, pad=1.5)
+    numbers = [str(i) for i in range(n - 1)]
+    ax.set_xticklabels([*numbers, "no sign"], rotation=90, fontsize=small - 0.5)
+    ax.set_yticklabels([*numbers, ""], fontsize=small - 0.5)
+    ax.tick_params(length=1.2, width=0.3, pad=1.2)
+    # The names stand to the left of the numbers, in a column of their own.
+    names = ax.get_yaxis_transform()
+    for i, name in enumerate([*CLASS_NAMES, "not detected"]):
+        ax.text(-0.052 if i < n - 1 else -0.012, i + 0.5, name, transform=names, ha="right", va="center_baseline",
+                fontsize=small)  # fmt: skip
     for k in range(5, n, 5):  # faint lines every five classes, to follow a row or column by eye
         ax.axhline(k, color="#cccccc", lw=0.25, zorder=0)
         ax.axvline(k, color="#cccccc", lw=0.25, zorder=0)
-    ax.set_xlabel("True class", fontsize=8)
-    ax.set_ylabel("Predicted class", fontsize=8)
+    ax.set_xlabel("True class, by its number in the rows", fontsize=7, labelpad=2)
+    ax.set_ylabel("Predicted class", fontsize=7, labelpad=98)
     for side in ("top", "right"):
         ax.spines[side].set_visible(True)
-    bar = fig.colorbar(mesh, ax=ax, orientation="horizontal", location="top", fraction=0.03, pad=0.015, aspect=45)
-    bar.set_label("Share of the true class's signs", fontsize=8)
-    bar.ax.tick_params(labelsize=7, length=2, width=0.3)
+    bar = fig.colorbar(mesh, ax=ax, fraction=0.035, pad=0.025, aspect=40)
+    bar.set_label("Share of the true class's signs", fontsize=7)
+    bar.ax.tick_params(labelsize=6, length=2, width=0.3)
     bar.outline.set_linewidth(0.4)
     # Matplotlib would store the bar as a picture; keep the whole figure vector, without seams between its steps.
     bar.solids.set(rasterized=False, edgecolor="face", linewidth=0.4)
