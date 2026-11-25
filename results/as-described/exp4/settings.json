@@ -1,0 +1,18 @@
+{
+  "experiment": {
+    "name": "exp4",
+    "clients": 4,
+    "rounds": 17,
+    "epochs": 10,
+    "note": "More local epochs"
+  },
+  "averaging": "fixed",
+  "seed": 0,
+  "parallel": 4,
+  "workers": 2,
+  "fedyolo": "1.0.0",
+  "torch": "2.14.1+cu130",
+  "cuda": "NVIDIA L4",
+  "python": "3.13.16",
+  "dataset": "GTSRB training set in YOLO layout, as described in the paper; content digest 8664fde4f19038b83dfd27ce0583f2190cc3abe76aacccb52a4f2b487cdb74a2"
+}

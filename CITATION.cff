@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: >-
+  This repository holds the code and results for the paper below, whose
+  experiments contain errors that are described in the README and corrected
+  here. If you use it, please cite the paper and, once the publisher has
+  published it, its correction.
+title: fl-yolov7-road-signs
+type: software
+version: 1.0.0
+date-released: 2026-11-25
+license: GPL-3.0-only
+repository-code: https://github.com/Bennett-hash/fl-yolov7-road-signs
+authors:
+  - family-names: Bi
+    given-names: Yizhen
+    affiliation: The University of Manchester
+    orcid: https://orcid.org/0009-0005-5639-5771
+preferred-citation:
+  type: conference-paper
+  title: >-
+    Empirical validation of federated learning with YOLO v7-tiny for road sign
+    detection: A simulation-based comparative study
+  authors:
+    - family-names: Bi
+      given-names: Yizhen
+      affiliation: The University of Manchester
+      orcid: https://orcid.org/0009-0005-5639-5771
+  conference:
+    name: 4th International Conference on Signal Processing and Machine Learning (CONF-SPML 2024)
+    city: Chicago
+    country: US
+    date-start: 2024-01-15
+    date-end: 2024-01-15
+  collection-title: Applied and Computational Engineering
+  volume: 49
+  start: 92
+  end: 101
+  year: 2024
+  publisher:
+    name: EWA Publishing
+  doi: 10.54254/2755-2721/49/20241067
+  identifiers:
+    - type: doi
+      value: 10.54254/2755-2721/49/20241067
+      description: The publisher's version of record
+    - type: doi
+      value: 10.26914/c.cnkihy.2024.074802
+      description: The paper's record at CNKI

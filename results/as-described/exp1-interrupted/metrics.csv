@@ -1,0 +1,3 @@
+experiment,round,split,images,labels,precision,recall,map50,map50_95,train_seconds,wall_seconds,finished_at
+exp1,50,val,3921,3921,0.569,0.447,0.381,0.309,48466.8,,2026-11-24T01:09:32+00:00
+exp1,final,test,3921,3921,0.576,0.433,0.381,0.311,,,2026-11-24T01:10:36+00:00

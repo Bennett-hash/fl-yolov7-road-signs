@@ -1,0 +1,18 @@
+{
+  "experiment": {
+    "name": "exp1",
+    "clients": 0,
+    "rounds": 1,
+    "epochs": 50,
+    "note": "Centralised baseline"
+  },
+  "averaging": "fixed",
+  "seed": 0,
+  "parallel": 4,
+  "workers": 2,
+  "fedyolo": "1.0.0",
+  "torch": "2.14.1+cu130",
+  "cuda": "Tesla T4",
+  "python": "3.13.16",
+  "dataset": "GTSRB training set in YOLO layout, as used in 2023 (--as-2023); content digest 2556dd44960f443e618ce07170b85b36045237c510a67b30ec5d160eb8476378"
+}

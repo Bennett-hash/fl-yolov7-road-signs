@@ -1,0 +1,13 @@
+dataset,experiment,clients,rounds,epochs,precision,recall,map50,map50_95,precision_2023,recall_2023,map50_2023,map50_95_2023,client_records_rounds,note
+as-described,exp1,,,50,0.676,0.455,0.363,0.291,0.495,0.779,0.646,0.43,,run from start to finish without interruption
+as-described,exp1-interrupted,,,50,0.576,0.433,0.381,0.311,0.495,0.779,0.646,0.43,,interrupted and resumed 2 times
+as-described,exp2,16,17,3,0.507,0.306,0.0676,0.0493,0.32,0.273,0.0653,0.0369,1-17,
+as-described,exp3,4,17,3,0.409,0.488,0.179,0.14,0.428,0.399,0.216,0.135,1-17,
+as-described,exp4,4,17,10,0.597,0.476,0.389,0.323,0.479,0.695,0.584,0.37,4-17,
+as-described,exp5,4,40,3,0.378,0.539,0.338,0.276,0.493,0.424,0.343,0.195,12-40,
+2023-data,exp1,,,50,0.583,0.68,0.577,0.374,0.495,0.779,0.646,0.43,,run from start to finish without interruption
+2023-data,exp1-interrupted,,,50,0.489,0.727,0.531,0.342,0.495,0.779,0.646,0.43,,interrupted and resumed 4 times
+2023-data,exp2,16,17,3,0.592,0.286,0.073,0.0442,0.32,0.273,0.0653,0.0369,1-17,
+2023-data,exp3,4,17,3,0.568,0.293,0.238,0.15,0.428,0.399,0.216,0.135,1-17,
+2023-data,exp4,4,17,10,0.545,0.632,0.547,0.357,0.479,0.695,0.584,0.37,17-17,
+2023-data,exp5,4,40,3,0.474,0.527,0.383,0.246,0.493,0.424,0.343,0.195,38-40,
