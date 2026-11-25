@@ -13,3 +13,4 @@ dist/
 *.pt
 colab_key*
 .env
+/archives/
